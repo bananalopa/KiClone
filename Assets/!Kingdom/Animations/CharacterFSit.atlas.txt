@@ -1,0 +1,12 @@
+CharacterFSit.png
+size:64,16
+filter:Linear,Linear
+Body
+bounds:27,4,7,10
+Hand
+bounds:36,8,4,6
+Head
+bounds:17,2,8,12
+Legs
+bounds:2,2,12,13
+rotate:90

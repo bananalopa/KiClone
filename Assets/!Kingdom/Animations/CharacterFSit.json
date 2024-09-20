@@ -1,0 +1,78 @@
+{
+"skeleton": {
+	"hash": "a9qF/EKT15c",
+	"spine": "4.2.36",
+	"x": -3,
+	"y": 4,
+	"width": 13,
+	"height": 28,
+	"images": "./Art/Character/images/",
+	"audio": "./audio"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "pelvis", "parent": "root", "y": 16 },
+	{ "name": "legs", "parent": "pelvis", "length": 9.71, "rotation": -48.63 },
+	{ "name": "spine", "parent": "pelvis", "length": 3, "rotation": 63.69 },
+	{ "name": "Head", "parent": "spine", "length": 2.37, "x": 10.52, "y": 1.29 },
+	{ "name": "Hand", "parent": "spine", "length": 6.04, "rotation": -122.37, "x": 6.04, "y": 0.2 }
+],
+"slots": [
+	{ "name": "Body", "bone": "spine", "attachment": "Body" },
+	{ "name": "Legs", "bone": "legs", "attachment": "Legs" },
+	{ "name": "Head", "bone": "Head", "attachment": "Head" },
+	{ "name": "Hand", "bone": "Hand", "attachment": "Hand" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Body": {
+				"Body": { "x": 5.28, "y": 0.56, "rotation": -63.69, "width": 7, "height": 10 }
+			},
+			"Hand": {
+				"Hand": { "x": 2.92, "y": -0.02, "rotation": 58.68, "width": 4, "height": 6 }
+			},
+			"Head": {
+				"Head": { "x": -1.11, "y": 2.24, "rotation": -63.69, "width": 8, "height": 12 }
+			},
+			"Legs": {
+				"Legs": { "x": 6.77, "y": -0.63, "rotation": 48.63, "width": 12, "height": 13 }
+			}
+		}
+	}
+],
+"animations": {
+	"dropItem": {
+		"bones": {
+			"Hand": {
+				"rotate": [
+					{},
+					{ "time": 0.2, "value": 62.82 },
+					{ "time": 0.3333 }
+				]
+			}
+		}
+	},
+	"flipLeft": {
+		"bones": {
+			"pelvis": {
+				"scale": [
+					{},
+					{ "time": 0.1333, "x": -1 }
+				]
+			}
+		}
+	},
+	"walk": {
+		"bones": {
+			"pelvis": {
+				"translate": [
+					{},
+					{ "time": 0.3333, "y": 0.68 }
+				]
+			}
+		}
+	}
+}
+}
