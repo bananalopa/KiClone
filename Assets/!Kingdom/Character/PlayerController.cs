@@ -1,53 +1,49 @@
 using System;
+using Kingdom.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Kingdom.Core
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] Transform playerTransform;
         [SerializeField] private CharacterController characterController;
+        [SerializeField] private bool isFlipped = false;
+        
+        private PlayerInputHandler playerInputHandler;
 
-        private void OnEnable()
+        [Inject]
+        void Construct(PlayerInputHandler playerInputHandler)
         {
-           // walkActionReference.action.Enable();
-           // runActionReference.action.Enable();
-        }
-
-        private void Start()
-        {
-            //walkActionReference.action.started += (context) => { Debug.Log("started"); };
-            //walkActionReference.action.performed += (context) =>
-            //{
-               // Debug.Log("performed"); 
-                
-           // };
+	        this.playerInputHandler = playerInputHandler;
         }
 
         private void Update()
         {
             float dt = Time.deltaTime;
-
-            
-            //if (walkActionReference.action.IsInProgress())
-           //     Debug.Log(walkActionReference.action.ReadValue<float>());
-            
-            
-   //         float velocity = 0;
-//                velocity = (walkActionReference.action.ReadValue<float>());
-			
-
-
-      //      characterController.Move(new Vector3(velocity, 0,0) * dt);
+            float velocity = 0;
+            velocity = playerInputHandler.Hor;
+            UpdateDirection(velocity);
+            characterController.Move(new Vector3(velocity, 0,0) * dt);
         }
         
-        private void OnDisable()
+        // default direction is always to the right
+        private void UpdateDirection(float direction)
         {
-           // walkActionReference.action.Disable();
-          //  runActionReference.action.Disable();
+            switch (direction)
+            {
+                // Use scale to flip character depending on direction
+                case > 0 when isFlipped:
+                    isFlipped = false;
+                    playerTransform.localScale = Vector3.one;
+                    break;
+                case < 0 when !isFlipped:
+                    isFlipped = true;
+                    playerTransform.localScale = new Vector3(-1, 1, 1);
+                    break;
+            }
         }
-        
     }
-    
-
 }

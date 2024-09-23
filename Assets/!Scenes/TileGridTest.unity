@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6017c7a25d0fac428603c92600b3f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInputHandler: {fileID: 356583670}
 --- !u!114 &68661043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,7 +380,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39132986ec8b3f545948418155a5efbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapAndHoldInputInteractionSim: {fileID: 356583672}
+  horAction: {fileID: -8737050554207427538, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  downTapAction: {fileID: -2232517906651488975, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  downHoldAction: {fileID: -5321151800687959329, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!4 &356583671
 Transform:
   m_ObjectHideFlags: 0
@@ -402,14 +405,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356583669}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9361bf805bd69124c81e55750746e922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapAndHoldRef: {fileID: -5909869360944145339, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  tapToHoldTimeout: 0.2
+  interactionState: 0
   isLoggingEnabled: 1
+  tapAndHoldRef: {fileID: -5909869360944145339, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  tapToHoldTimeout: 0.6
+  resetTimeout: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +675,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.75625
+  orthographic size: 1.6294643
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2154,9 +2159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb18a2751480a9439428787cffa4f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkActionReference: {fileID: -3167163098213795253, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  runActionReference: {fileID: -1733754267315226681, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  playerTransform: {fileID: 179612784}
   characterController: {fileID: 2096841517}
+  isFlipped: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
