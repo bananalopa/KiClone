@@ -1,0 +1,10 @@
+﻿title This is a title
+
+
+participant Bob
+
+
+participant Alice
+
+Alice->Bob:Click and drag to create a request or\ntype it in the source area to the left
+Alice<--Bob:drag to move
