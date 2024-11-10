@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -41,3 +41,29 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2089771931
+    locked: 0
+  - name: Ground
+    uniqueID: 2339065039
+    locked: 0
+  - name: Buildings
+    uniqueID: 3311890975
+    locked: 0
+  - name: Monarch
+    uniqueID: 822193177
+    locked: 0
+  - name: Characters
+    uniqueID: 4247258745
+    locked: 0
+  - name: Bushes
+    uniqueID: 2578832879
+    locked: 0
+  - name: Walls
+    uniqueID: 2472446885
+    locked: 0
+  - name: Trees
+    uniqueID: 3398713883
+    locked: 0
+  m_RenderingLayers:
+  - Default
