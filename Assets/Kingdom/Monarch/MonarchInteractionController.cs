@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Kingdom
+namespace Kingdom.Monarch
 {
 	public class MonarchInteractionController : MonoBehaviour
 	{

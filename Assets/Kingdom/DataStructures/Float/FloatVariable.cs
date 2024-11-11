@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Kingdom.DataStructures
 {
-	[CreateAssetMenu(order = 0)]
+	[CreateAssetMenu(order = int.MinValue + 100)]
 	public class FloatVariable : VariableT<float>
 	{
 

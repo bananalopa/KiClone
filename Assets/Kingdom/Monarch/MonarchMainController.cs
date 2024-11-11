@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
-namespace Kingdom
+namespace Kingdom.Monarch
 {
 	public class MonarchMainController : MonoBehaviour
 	{
-		[SerializeField] MonarchMoveController monarchMainController;
+		[SerializeField] MonarchMoveController monarchMoveController;
 		[SerializeField] MonarchInteractionController monarchInteractionController;
 		[SerializeField] ClosestInteractableLookup closestInteractableLookup;
+		[SerializeField] private Pouch pouch;
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace Kingdom
+namespace Kingdom.Monarch
 {
     public class MonarchMoveController : MonoBehaviour
     {
