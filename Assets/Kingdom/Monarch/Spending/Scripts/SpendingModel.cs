@@ -7,37 +7,31 @@ namespace Kingdom.Monarch
 	[Serializable]
 	public class SpendingModel
 	{
-		[SerializeField] private int coinsReserve;
+		[SerializeField] private SerializableReactiveProperty<int> coinsReserve = new();
 		
-		private IInteractable interactable;
-		public Subject<IInteractable> OnSpend;
+		public Subject<IInteractable> OnSpend = new();
+		public SerializableReactiveProperty<int> CoinsReserve => coinsReserve;
 
-		public SpendingModel(IInteractable interactable)
-		{
-			this.interactable = interactable;
-			OnSpend = new();
-		}
 		
-		public void AddCoinsToReserve(int amount = 1)
+		public void AddCoinsToReserve(IInteractable interactable, int amount = 1)
 		{
-			coinsReserve += amount;
-			if (coinsReserve >= interactable.InteractionPrice())
+			if (interactable == null)
+				return;
+			
+			CoinsReserve.Value += amount;
+			if (CoinsReserve.Value >= interactable.InteractionPrice())
 			{
-				coinsReserve -= interactable.InteractionPrice();
+				CoinsReserve.Value -= interactable.InteractionPrice();
 				OnSpend.OnNext(interactable);
 			}
 		}
 
 		public int GetRefund()
 		{
-			int amount = coinsReserve;
-			coinsReserve = 0;
+			int amount = CoinsReserve.Value;
+			CoinsReserve.Value = 0;
 			return amount;
 		}
-
-		public void Dispose()
-		{
-			OnSpend.Dispose();
-		}
+		
 	}
 }

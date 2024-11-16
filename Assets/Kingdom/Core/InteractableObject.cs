@@ -21,12 +21,17 @@ namespace Kingdom
 			return isInteractable;
 		}
 
-		public virtual void Interact()
+		public void Interact()
 		{
 			if (isInteractable.Value)
 				onInteract.OnNext(Unit.Default);
 		}
 
+		public void SetInteractionPrice(IntReference price)
+		{
+			interactionPrice = price;
+		}
+		
 		public int InteractionPrice()
 		{
 			return interactionPrice.Value;

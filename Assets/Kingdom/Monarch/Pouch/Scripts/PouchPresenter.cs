@@ -28,7 +28,7 @@ namespace Kingdom.Monarch
 			pouchModel.RemoveCoins(amount);
 		}
 		
-		public void PayCoins(int amount)
+		public void PayCoins(int amount = 1)
 		{
 			pouchModel.RemoveCoins(amount);
 		}

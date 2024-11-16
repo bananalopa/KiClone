@@ -154,6 +154,7 @@ MonoBehaviour:
   approachableController: {fileID: 1306034509}
   monarchInteractionController: {fileID: 1639410603}
   camera: {fileID: 1648377106}
+  sharedSettingsSo: {fileID: 11400000, guid: 84a7e4e2c89254f4684494a05c9da383, type: 2}
 --- !u!114 &68661043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2477405057876460605, guid: 265da2e797060a5449a7cafa181f1e31, type: 3}
       propertyPath: m_Name
-      value: Tree (2)
+      value: TreeSmall
       objectReference: {fileID: 0}
     - target: {fileID: 6770567453974275640, guid: 265da2e797060a5449a7cafa181f1e31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -729,7 +730,7 @@ MonoBehaviour:
       ValueTypeValue: 0
       ScriptableObjectVariable: {fileID: 11400000, guid: dbf6c4af5a9fb5444aada5b50e6127fc, type: 2}
     currentCoinCount:
-      value: 10
+      value: 5
   view: {fileID: 208465422}
 --- !u!4 &418525662
 Transform:
@@ -1408,7 +1409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spendingModel:
-    coinsReserve: 0
+    coinsReserve:
+      value: 0
   spendingView: {fileID: 495839553}
   timeRequiredToSpendOneCoin:
     ValueTypeValue: 0
@@ -3522,7 +3524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2477405057876460605, guid: 265da2e797060a5449a7cafa181f1e31, type: 3}
       propertyPath: m_Name
-      value: Tree (1)
+      value: TreeSmall
       objectReference: {fileID: 0}
     - target: {fileID: 6770567453974275640, guid: 265da2e797060a5449a7cafa181f1e31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3815,7 +3817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2477405057876460605, guid: 265da2e797060a5449a7cafa181f1e31, type: 3}
       propertyPath: m_Name
-      value: Tree
+      value: TreeSmall
       objectReference: {fileID: 0}
     - target: {fileID: 6770567453974275640, guid: 265da2e797060a5449a7cafa181f1e31, type: 3}
       propertyPath: m_LocalPosition.x

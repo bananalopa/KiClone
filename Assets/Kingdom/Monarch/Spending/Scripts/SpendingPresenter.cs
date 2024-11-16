@@ -8,7 +8,7 @@ namespace Kingdom.Monarch
 {
 	public class SpendingPresenter : MonoBehaviour
 	{
-		[SerializeField] SpendingModel spendingModel;
+		[SerializeField] private SpendingModel spendingModel;
 		[SerializeField] private SpendingView spendingView;
 		[SerializeField] private FloatReference timeRequiredToSpendOneCoin;
 		
@@ -30,6 +30,8 @@ namespace Kingdom.Monarch
 
 		private void Start()
 		{
+			
+			
 			monarchInteractionController.OnInteractableChange.Subscribe(interactable =>
 			{
 				if (interactable == null)
@@ -38,6 +40,7 @@ namespace Kingdom.Monarch
 				}
 				else
 				{
+					
 					spendingView.Show(interactable.InteractionPrice(), interactable.gameObject.transform.position);
 					currentInteractable = interactable;
 				}
@@ -50,30 +53,29 @@ namespace Kingdom.Monarch
 				{
 					if (currentInteractable == null)
 						return;
-					spendingModel = new SpendingModel(currentInteractable);
-					disposable = spendingModel.OnSpend.Subscribe(interactable =>
+					
+					spendingModel.OnSpend.Subscribe(interactable =>
 					{
-						
-						interactable.Interact();
+						interactable?.Interact();
 					});
+					
 					spendingView.Show(currentInteractable.InteractionPrice(), currentInteractable.gameObject.transform.position);
-					Observable.Interval(TimeSpan.FromSeconds(timeRequiredToSpendOneCoin.Value)).Subscribe(_ =>
+					disposable = Observable.Interval(TimeSpan.FromSeconds(timeRequiredToSpendOneCoin.Value)).Subscribe(_ =>
 					{
-						
-					});
-					
-					
+						if (currentInteractable == null)
+							return;
+						pouchPresenter.PayCoins();
+						spendingModel.AddCoinsToReserve(currentInteractable);
+						spendingView.SetReservedCoins(spendingModel.CoinsReserve.Value);
+					}).AddTo(this);
+
+
 				}
 				else
 				{
 					currentInteractable = null;
-
-					disposable.Dispose();
-					if (spendingModel == null)
-						return;
+					disposable?.Dispose();
 					pouchPresenter.AddCoins(spendingModel.GetRefund());
-					spendingModel?.Dispose();
-					spendingModel = null;
 				}
 			}).AddTo(this);
 		}
