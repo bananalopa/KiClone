@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Kingdom.DataStructures
+namespace Kingdom
 {
 	public class VariableT<T> : ScriptableObject
 	{

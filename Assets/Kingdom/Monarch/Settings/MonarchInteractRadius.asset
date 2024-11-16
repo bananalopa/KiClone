@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568b1c6230ee67740b6a5f5b420f7ec4, type: 3}
   m_Name: MonarchInteractRadius
   m_EditorClassIdentifier: 
-  Value: 1.39
+  Value: 0.81

@@ -5,16 +5,8 @@ using UnityEngine.Serialization;
 
 namespace Kingdom
 {
-	public class Building : Interactable
+	public class Building : MonoBehaviour
 	{
-		public override void Interact()
-		{
-			throw new System.NotImplementedException();
-		}
 
-		public override bool IsInteractable()
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

@@ -1,9 +1,9 @@
-﻿using Kingdom.DataStructures.Int;
+﻿using Kingdom;
 using UnityEditor;
 
-namespace Kingdom.DataStructures.Editor
+namespace Kingdom.Editor
 {
-	[CustomPropertyDrawer(typeof(IntReference))]
+	[CustomPropertyDrawer(typeof(IntReference), true)]
 	public class IntReferenceDrawer : ReferenceTDrawer<IntVariable>
 	{
 		

@@ -4,26 +4,24 @@ using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UIElements;
 
-namespace Kingdom.DataStructures.Editor
+namespace Kingdom.Editor
 {
 	public class ReferenceTDrawer<T> : PropertyDrawer
 	{
 		private SerializedProperty scriptableObjectVariableSerializedProperty;
 		private PropertyField valueTypeValue;
 		private PropertyField valueProperty;
-
 		private PropertyField scriptableObjectVariableProperty;
-		
-		
+		SerializedProperty property;
 		private SerializedProperty valueSerializedProperty;
 		
 		SerializedObject serializedObject;
-		
 		VisualElement container;
 		
 		public override VisualElement CreatePropertyGUI(SerializedProperty property)
 		{
 			container = new VisualElement();
+			this.property = property;
 			container.style.alignContent = Align.Center;
 			container.style.flexDirection = FlexDirection.Row;
 			
@@ -38,17 +36,34 @@ namespace Kingdom.DataStructures.Editor
 			valueTypeValue = new PropertyField(property.FindPropertyRelative("ValueTypeValue"),"Value");
 			container.Add(valueTypeValue);
 			
-			Refresh();
+			//Refresh();
 			
-			container.TrackPropertyValue(scriptableObjectVariableSerializedProperty, _ =>
+			//container.TrackPropertyValue(scriptableObjectVariableSerializedProperty, _ =>
+			//{
+				//Refresh();
+			//});
+			if (scriptableObjectVariableSerializedProperty.objectReferenceValue)
 			{
-				Refresh();
-			});
+				serializedObject = new SerializedObject(scriptableObjectVariableSerializedProperty.objectReferenceValue);
+				valueSerializedProperty = serializedObject.FindProperty("Value");
+				//container.Bind(serializedObject);
+				valueProperty = new PropertyField(valueSerializedProperty, "Value");
+				valueProperty.Bind(serializedObject);
+				container.Add(valueProperty);
+			}
+			
+			
+			var isNull = scriptableObjectVariableSerializedProperty.objectReferenceValue == null;
+			valueTypeValue.style.display = isNull ? DisplayStyle.Flex : DisplayStyle.None;
+			if (valueProperty!=null)
+				valueProperty.style.display = isNull ? DisplayStyle.None : DisplayStyle.Flex;
+			
 			return container;
 		}
 
 		void Refresh()
 		{
+			container.Unbind();
 			if (scriptableObjectVariableSerializedProperty.objectReferenceValue )
 			{
 				serializedObject = new SerializedObject(scriptableObjectVariableSerializedProperty.objectReferenceValue);
@@ -58,6 +73,9 @@ namespace Kingdom.DataStructures.Editor
 				valueProperty = new PropertyField(valueSerializedProperty, "Value");
 				valueProperty.Bind(serializedObject);
 				container.Add(valueProperty);
+				
+				
+				
 			}
 			
 			var isNull = scriptableObjectVariableSerializedProperty.objectReferenceValue == null;
@@ -70,3 +88,5 @@ namespace Kingdom.DataStructures.Editor
 		
 	}
 }
+
+

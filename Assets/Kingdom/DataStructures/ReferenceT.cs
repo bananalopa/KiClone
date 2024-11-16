@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.Serialization;
 
-namespace Kingdom.DataStructures
+namespace Kingdom
 {
 	[Serializable]
 	public class ReferenceT<T>

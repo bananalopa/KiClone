@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Kingdom.DataStructures
+namespace Kingdom
 {
 	[Serializable]
 	public class FloatReference : ReferenceT<float>

@@ -13,21 +13,21 @@ namespace Kingdom.Monarch
         [SerializeField] private bool isFlipped = false;
         [SerializeField] Animator animator;
         
-        private PlayerInputHandler playerInputHandler;
+        private InputHandler inputHandler;
 
         const string IS_WALKING = "isWalking";
         
         [Inject]
-        void Construct(PlayerInputHandler playerInputHandler)
+        void Construct(InputHandler inputHandler)
         {
-	        this.playerInputHandler = playerInputHandler;
+	        this.inputHandler = inputHandler;
         }
 
         private void Update()
         {
             float dt = Time.deltaTime;
             float velocity = 0;
-            velocity = playerInputHandler.Hor;
+            velocity = inputHandler.Hor;
             UpdateDirection(velocity);
             characterController.Move(new Vector3(velocity, 0,0) * dt);
 

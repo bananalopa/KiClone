@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Kingdom.DataStructures;
 using UnityEngine;
 
 namespace Kingdom
@@ -12,8 +10,5 @@ namespace Kingdom
 		[SerializeField] private TechAge minTechAge;
 		[SerializeField] private TownCenterLevel minTownCenterLevel;
 		[SerializeField] private BuildingUpgradableSettingSo upgradedBuildingSettingSo;
-
-		
 	}
-	
 }

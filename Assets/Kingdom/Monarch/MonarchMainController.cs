@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Kingdom.Monarch
 {
@@ -6,7 +7,7 @@ namespace Kingdom.Monarch
 	{
 		[SerializeField] MonarchMoveController monarchMoveController;
 		[SerializeField] MonarchInteractionController monarchInteractionController;
-		[SerializeField] ClosestInteractableLookup closestInteractableLookup;
-		[SerializeField] private Pouch pouch;
+		[SerializeField] ApproachableController approachableController;
+		[SerializeField] PouchPresenter pouchPresenter;
 	}
 }

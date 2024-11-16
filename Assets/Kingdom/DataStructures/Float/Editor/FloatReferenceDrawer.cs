@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Kingdom.DataStructures.Editor
+namespace Kingdom.Editor
 {
 	[CustomPropertyDrawer(typeof(FloatReference))]
 	public class FloatReferenceDrawer : ReferenceTDrawer<FloatVariable>
