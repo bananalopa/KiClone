@@ -30,56 +30,66 @@ namespace Kingdom.Monarch
 
 		private void Start()
 		{
-			
-			
 			monarchInteractionController.OnInteractableChange.Subscribe(interactable =>
 			{
+				Refund();
+				currentInteractable = null;
 				if (interactable == null)
 				{
 					spendingView.Hide();
 				}
 				else
 				{
-					
 					spendingView.Show(interactable.InteractionPrice(), interactable.gameObject.transform.position);
 					currentInteractable = interactable;
 				}
 			}).AddTo(this);
 			
+			spendingModel.OnSpend.Subscribe(interactable =>
+			{
+				interactable?.Interact();
+				spendingView.Hide();
+			}).AddTo(this);
+			
+			spendingModel.OnGetRefund.Subscribe(amount =>
+			{
+				spendingView.ResetReservedCoins();
+			}).AddTo(this);
 			
 			inputHandler.DownHold.Subscribe(isDownHold =>
 			{
 				if (isDownHold)
 				{
-					if (currentInteractable == null)
+					if (currentInteractable == null || !currentInteractable.IsInteractable().Value)
 						return;
-					
-					spendingModel.OnSpend.Subscribe(interactable =>
-					{
-						interactable?.Interact();
-					});
 					
 					spendingView.Show(currentInteractable.InteractionPrice(), currentInteractable.gameObject.transform.position);
 					disposable = Observable.Interval(TimeSpan.FromSeconds(timeRequiredToSpendOneCoin.Value)).Subscribe(_ =>
 					{
-						if (currentInteractable == null)
+						if (currentInteractable == null || !currentInteractable.IsInteractable().Value)
 							return;
-						pouchPresenter.PayCoins();
-						spendingModel.AddCoinsToReserve(currentInteractable);
-						spendingView.SetReservedCoins(spendingModel.CoinsReserve.Value);
+						if (pouchPresenter.TryPayCoins())
+						{
+							spendingModel.AddCoinsToReserve(currentInteractable);
+							spendingView.SetReservedCoins(spendingModel.CoinsReserve.Value);
+						}
 					}).AddTo(this);
 
 
 				}
 				else
 				{
-					currentInteractable = null;
 					disposable?.Dispose();
-					pouchPresenter.AddCoins(spendingModel.GetRefund());
+					Refund();
 				}
 			}).AddTo(this);
 		}
 
+		void Refund()
+		{
+			pouchPresenter.AddCoins(spendingModel.GetRefund());
+		}
+		
 		private void OnDestroy()
 		{
 			disposable?.Dispose();

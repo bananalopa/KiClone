@@ -10,6 +10,8 @@ namespace Kingdom.Monarch
 		[SerializeField] private SerializableReactiveProperty<int> coinsReserve = new();
 		
 		public Subject<IInteractable> OnSpend = new();
+		
+		public Subject<int> OnGetRefund = new();
 		public SerializableReactiveProperty<int> CoinsReserve => coinsReserve;
 
 		
@@ -28,7 +30,8 @@ namespace Kingdom.Monarch
 
 		public int GetRefund()
 		{
-			int amount = CoinsReserve.Value;
+			OnGetRefund.OnNext(CoinsReserve.Value);
+			var amount = CoinsReserve.Value;
 			CoinsReserve.Value = 0;
 			return amount;
 		}

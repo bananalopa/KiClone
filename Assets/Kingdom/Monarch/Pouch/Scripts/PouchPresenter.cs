@@ -18,19 +18,21 @@ namespace Kingdom.Monarch
 				AddTo(this);
 		}
 
-		public void AddCoins(int amount = 1)
+		public bool AddCoins(int amount = 1)
 		{
-			pouchModel.AddCoins(amount);
+			return pouchModel.AddCoins(amount);
+			
+			//add dropping coins into water if pouch capacity exceeded
 		}
 		
-		public void DropCoins(int amount = 1)
+		public bool TryDropCoins(int amount = 1)
 		{
-			pouchModel.RemoveCoins(amount);
+			return pouchModel.RemoveCoins(amount);
 		}
 		
-		public void PayCoins(int amount = 1)
+		public bool TryPayCoins(int amount = 1)
 		{
-			pouchModel.RemoveCoins(amount);
+			return pouchModel.RemoveCoins(amount);
 		}
 		
 	}

@@ -43,6 +43,10 @@ namespace Kingdom.Monarch
 		{
 			reservedCoinsText.text = coins.ToString();
 		}
-		
+
+		public void ResetReservedCoins()
+		{
+			reservedCoinsText.text = "";
+		}
 	}
 }
