@@ -1,4 +1,5 @@
 using Kingdom;
+using Kingdom.Entities;
 using Kingdom.Input;
 using Kingdom.Monarch;
 using UnityEngine;
@@ -21,5 +22,6 @@ public class MainSceneInstaller : MonoInstaller
         Container.Bind<MonarchInteractionController>().FromInstance(monarchInteractionController).AsSingle();
         Container.Bind<Camera>().FromInstance(camera).AsSingle();
 
+        Container.Bind<CoinPool>().FromNew().AsSingle();
     }
 }

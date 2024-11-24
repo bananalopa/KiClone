@@ -10,7 +10,7 @@ namespace Kingdom.Entities
 	{
 		[SerializeField] private SpriteRenderer renderer;
 		
-		public Subject<Unit> OnDissapear;
+		public Subject<Unit> OnDissapear = new();
 		
 		private SharedSettings sharedSettings;
 		
@@ -25,7 +25,12 @@ namespace Kingdom.Entities
 			renderer.color = color;
 		}
 		
-		public void ShowDisappearance()
+		public void Hide()
+		{
+			renderer.DOFadeOut(sharedSettings.FadeTime).OnComplete(()=>OnDissapear.OnNext(Unit.Default));
+		}
+		
+		public void Show()
 		{
 			renderer.DOFadeOut(sharedSettings.FadeTime).OnComplete(()=>OnDissapear.OnNext(Unit.Default));
 		}

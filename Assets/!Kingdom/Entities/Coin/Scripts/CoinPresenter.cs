@@ -9,7 +9,6 @@ namespace Kingdom.Entities
 	{
 		[SerializeField] CoinModel coinModel;
 		[SerializeField] CoinView coinView;
-		[SerializeField] InteractableObject interactableObject;
 
 		CoinSetting coinSetting;
 		
@@ -26,16 +25,10 @@ namespace Kingdom.Entities
 
 		private void Start()
 		{
-			interactableObject.OnInteract().Subscribe(_ =>
-			{
-				Destroy(gameObject);
-			}).AddTo(this);
-
 			coinView.OnDissapear.Subscribe(_ =>
 			{
 				Destroy(gameObject);
 			});
-
 		}
 		
 	}

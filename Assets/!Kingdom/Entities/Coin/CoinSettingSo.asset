@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: CoinSettingSo
   m_EditorClassIdentifier: 
   coinSetting:
-    colors: []
+    coinPrefab: {fileID: 1775415563610733097, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
+    colors:
+    - {r: 0.82028484, g: 0.94716984, b: 0.94263476, a: 1}
+    - {r: 0.97735846, g: 0.9757683, b: 0.6177643, a: 1}
     disappearTimeout:
-      ValueTypeValue: 0
+      ValueTypeValue: 10
       ScriptableObjectVariable: {fileID: 0}

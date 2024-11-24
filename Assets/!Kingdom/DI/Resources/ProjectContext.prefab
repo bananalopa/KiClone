@@ -75,3 +75,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedSettingsSo: {fileID: 11400000, guid: 84a7e4e2c89254f4684494a05c9da383, type: 2}
+  coinSettingSo: {fileID: 11400000, guid: 6a291521434619c41bd05e4b411a9603, type: 2}

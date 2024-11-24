@@ -8,13 +8,13 @@ namespace Kingdom.Entities
 	[Serializable]
 	public class CoinSetting
 	{
-		[SerializeField] private GameObject coinPrefab;
+		[SerializeField] private CoinPresenter coinPrefab;
 		[SerializeField] private List<Color> colors;
 		[SerializeField] private FloatReference disappearTimeout;
 
 		public FloatReference DisappearTimeout => disappearTimeout;
 
-		public GameObject CoinPrefab => coinPrefab;
+		public CoinPresenter CoinPrefab => coinPrefab;
 
 		public Color GetRandomColor()
 		{

@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Appoachable
   - Player
-  - 
-  - 
+  - Ground
+  - Coins
   - 
   - 
   - 
@@ -44,9 +44,6 @@ TagManager:
   - name: Background
     uniqueID: 2089771931
     locked: 0
-  - name: Ground
-    uniqueID: 2339065039
-    locked: 0
   - name: Buildings
     uniqueID: 3311890975
     locked: 0
@@ -56,14 +53,20 @@ TagManager:
   - name: Characters
     uniqueID: 4247258745
     locked: 0
-  - name: Bushes
-    uniqueID: 2578832879
+  - name: Coins
+    uniqueID: 3458717711
     locked: 0
   - name: Walls
     uniqueID: 2472446885
     locked: 0
+  - name: Bushes
+    uniqueID: 2578832879
+    locked: 0
   - name: Trees
     uniqueID: 3398713883
+    locked: 0
+  - name: Ground
+    uniqueID: 2339065039
     locked: 0
   m_RenderingLayers:
   - Default
