@@ -5,11 +5,13 @@ using Zenject;
 
 namespace Kingdom.Entities
 {
-	public class CoinPresenter : MonoBehaviour
+	public class CoinPresenter : MonoBehaviour, IPoolable
 	{
 		[SerializeField] CoinModel coinModel;
 		[SerializeField] CoinView coinView;
-
+		[SerializeField] private Rigidbody2D rigidBody;
+		
+		
 		CoinSetting coinSetting;
 		
 		[Inject]
@@ -30,6 +32,23 @@ namespace Kingdom.Entities
 				Destroy(gameObject);
 			});
 		}
-		
+
+		public void Activate()
+		{
+			coinModel.State = CoinModel.CoinStateEnum.Activated;
+			rigidBody.bodyType = RigidbodyType2D.Dynamic;
+		}
+
+		public void Deactivate()
+		{
+			coinModel.State = CoinModel.CoinStateEnum.Deactivated;
+			rigidBody.bodyType = RigidbodyType2D.Static;
+			coinView.Hide();
+		}
+
+		public void Destroy()
+		{
+			Destroy(gameObject);
+		}
 	}
 }

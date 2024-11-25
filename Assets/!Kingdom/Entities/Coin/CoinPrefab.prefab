@@ -52,6 +52,7 @@ MonoBehaviour:
     state: 0
     dropTime: 0
   coinView: {fileID: 3153173121285312809}
+  rigidBody: {fileID: 1690249100072938988}
 --- !u!114 &3153173121285312809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +118,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0285900bf4a9f884da93aae8cc8fc293, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -127,7 +128,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &7348271496219641242
 GameObject:
   m_ObjectHideFlags: 0

@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530744735}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d66a8479e51e4460ac2b371987a95167, type: 3}
   m_Name: 
@@ -3858,17 +3858,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin
       objectReference: {fileID: 0}
-    - target: {fileID: 285997654708474866, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7026995264369079285, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9996
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 7026995264369079285, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.294
+      value: 1.77
       objectReference: {fileID: 0}
     - target: {fileID: 7026995264369079285, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
       propertyPath: m_LocalPosition.z

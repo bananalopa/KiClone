@@ -25,12 +25,13 @@ namespace Kingdom.Entities
 
 		public enum CoinStateEnum
 		{
-			Reset = 0,
-			Dropping = 10,
-			Lying = 20,
-			Picking = 30,
-			Disappearing = 40,
-			FallingIntoWater = 50
+			Deactivated = 0,
+			Activated = 10,
+			Dropping = 20,
+			Lying = 30,
+			Picking = 40,
+			Disappearing = 50,
+			FallingIntoWater = 60
 		}
 	}
 }

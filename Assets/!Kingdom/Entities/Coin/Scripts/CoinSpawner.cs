@@ -5,7 +5,6 @@ namespace Kingdom.Entities
 {
 	public class CoinSpawner : MonoBehaviour
 	{
-		
 		CoinPool coinPool;
 		
 		[Inject]
@@ -14,11 +13,10 @@ namespace Kingdom.Entities
 			this.coinPool = coinPool;
 		}
 		
-		void dUpdate()
+		void Update()
 		{
 			var coinPresenter = coinPool.Get();
 			coinPresenter.transform.position = transform.position;
 		}
-		
 	}
 }
