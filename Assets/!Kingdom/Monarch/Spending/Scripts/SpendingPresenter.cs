@@ -68,7 +68,7 @@ namespace Kingdom.Monarch
 					{
 						if (currentInteractable == null || !currentInteractable.IsInteractable().Value)
 							return;
-						if (pouchPresenter.TryPayCoins())
+						if (pouchPresenter.TryRemoveCoins())
 						{
 							spendingModel.AddCoinsToReserve(currentInteractable);
 							spendingView.SetReservedCoins(spendingModel.CoinsReserve.Value);

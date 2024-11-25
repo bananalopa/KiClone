@@ -35,7 +35,7 @@ namespace Kingdom.Entities
 
 		public void Activate()
 		{
-			coinModel.State = CoinModel.CoinStateEnum.Activated;
+			coinModel.State = CoinModel.CoinStateEnum.Dropping;
 			rigidBody.bodyType = RigidbodyType2D.Dynamic;
 		}
 

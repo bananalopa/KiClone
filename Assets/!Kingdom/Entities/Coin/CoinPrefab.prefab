@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinModel:
-    state: 0
+    state: 20
     dropTime: 0
   coinView: {fileID: 3153173121285312809}
   rigidBody: {fileID: 1690249100072938988}

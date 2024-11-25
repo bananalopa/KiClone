@@ -26,7 +26,6 @@ namespace Kingdom.Entities
 		public enum CoinStateEnum
 		{
 			Deactivated = 0,
-			Activated = 10,
 			Dropping = 20,
 			Lying = 30,
 			Picking = 40,

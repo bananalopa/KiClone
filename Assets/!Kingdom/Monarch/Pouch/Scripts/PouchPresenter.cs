@@ -25,12 +25,7 @@ namespace Kingdom.Monarch
 			//add dropping coins into water if pouch capacity exceeded
 		}
 		
-		public bool TryDropCoins(int amount = 1)
-		{
-			return pouchModel.RemoveCoins(amount);
-		}
-		
-		public bool TryPayCoins(int amount = 1)
+		public bool TryRemoveCoins(int amount = 1)
 		{
 			return pouchModel.RemoveCoins(amount);
 		}
