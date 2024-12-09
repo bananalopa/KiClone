@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 356583670}
-  pouchPresenter: {fileID: 418525661}
+  monarchPouchPresenter: {fileID: 418525661}
   approachableController: {fileID: 1306034509}
   monarchInteractionController: {fileID: 1639410603}
   camera: {fileID: 1648377106}
@@ -724,12 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a422a0febe542e4bd45f5f81616f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pouchModel:
-    maxCoinsCapacity:
-      ValueTypeValue: 0
-      ScriptableObjectVariable: {fileID: 11400000, guid: dbf6c4af5a9fb5444aada5b50e6127fc, type: 2}
-    currentCoinCount:
-      value: 50
+  villagerCoinDropController: {fileID: 2021960813}
   view: {fileID: 208465422}
 --- !u!4 &418525662
 Transform:
@@ -1387,12 +1382,43 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891907602}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.66, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.609, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1151256556}
+  m_Father: {fileID: 2021960814}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1020623966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1020623967}
+  m_Layer: 0
+  m_Name: CheckingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1020623967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020623966}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.094, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2021960814}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1116733610
 GameObject:
@@ -1445,52 +1471,6 @@ MonoBehaviour:
   timeRequiredToSpendOneCoin:
     ValueTypeValue: 0
     ScriptableObjectVariable: {fileID: 11400000, guid: bb6e65b29c60dfe49a84f1b678d7cb25, type: 2}
---- !u!1 &1151256555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1151256556}
-  - component: {fileID: 1151256557}
-  m_Layer: 0
-  m_Name: MonarchCoinController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1151256556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151256555}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 891907603}
-  m_Father: {fileID: 2096841516}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1151256557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151256555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fd5b434b8b47a98be8d47a541c8ac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinDropStart: {fileID: 891907603}
 --- !u!1 &1169850296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkingPoint: {fileID: 1306034508}
-  layer:
+  layerMask:
     serializedVersion: 2
     m_Bits: 64
   gizmosColor: {r: 0.7669053, g: 0, b: 1, a: 0.13725491}
@@ -3783,6 +3763,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969690978}
   m_CullTransparentMesh: 1
+--- !u!1 &2021960812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2021960814}
+  - component: {fileID: 2021960813}
+  m_Layer: 0
+  m_Name: VillagerCoinDropController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2021960813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021960812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316ae3990dd94426b79d2f7180d48a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinDropStart: {fileID: 891907603}
+  checkingPoint: {fileID: 1020623967}
+  coinPickupRadius:
+    ValueTypeValue: 0.5
+    ScriptableObjectVariable: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  pouchModel:
+    maxCoinsCapacity:
+      ValueTypeValue: 0
+      ScriptableObjectVariable: {fileID: 11400000, guid: dbf6c4af5a9fb5444aada5b50e6127fc, type: 2}
+    currentCoinCount:
+      value: 30
+  gizmosColor: {r: 0.9898106, g: 1, b: 0.53396225, a: 0.47058824}
+  coinDropData: []
+--- !u!4 &2021960814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021960812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 891907603}
+  - {fileID: 1020623967}
+  m_Father: {fileID: 2096841516}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2096841513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,7 +3862,7 @@ Transform:
   - {fileID: 1116733611}
   - {fileID: 1306034508}
   - {fileID: 1639410604}
-  - {fileID: 1151256556}
+  - {fileID: 2021960814}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &2096841517
@@ -3879,7 +3921,7 @@ MonoBehaviour:
   monarchMoveController: {fileID: 0}
   monarchInteractionController: {fileID: 1639410603}
   approachableController: {fileID: 0}
-  pouchPresenter: {fileID: 418525661}
+  monarchPouchPresenter: {fileID: 418525661}
 --- !u!1001 &1190118642124555328
 PrefabInstance:
   m_ObjectHideFlags: 0

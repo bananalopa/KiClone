@@ -9,7 +9,7 @@ using Zenject;
 public class MainSceneInstaller : MonoInstaller
 {
     [SerializeField] private InputHandler inputHandler;
-    [SerializeField] private PouchPresenter pouchPresenter;
+    [FormerlySerializedAs("pouchPresenter")] [SerializeField] private MonarchPouchPresenter monarchPouchPresenter;
     [SerializeField] private ApproachableController approachableController;
     [SerializeField] private MonarchInteractionController monarchInteractionController;
     [SerializeField] private Camera camera;
@@ -17,7 +17,7 @@ public class MainSceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<InputHandler>().FromInstance(inputHandler).AsSingle();
-        Container.Bind<PouchPresenter>().FromInstance(pouchPresenter).AsSingle();
+        Container.Bind<MonarchPouchPresenter>().FromInstance(monarchPouchPresenter).AsSingle();
         Container.Bind<ApproachableController>().FromInstance(approachableController).AsSingle();
         Container.Bind<MonarchInteractionController>().FromInstance(monarchInteractionController).AsSingle();
         Container.Bind<Camera>().FromInstance(camera).AsSingle();

@@ -10,7 +10,7 @@ namespace Kingdom
 	public class ApproachableController: MonoBehaviour
 	{
 		[SerializeField] private Transform checkingPoint;
-		[SerializeField] private LayerMask layer;
+		[FormerlySerializedAs("layer")] [SerializeField] private LayerMask layerMask;
 		[SerializeField] Color gizmosColor;
 		[SerializeField] private FloatReference radius;
 		[SerializeField] List<Approachable> previousTickApproachables;
@@ -31,7 +31,7 @@ namespace Kingdom
 
 		void CheckApproachables()
 		{
-			var collider2Ds = Physics2D.OverlapCircleAll(checkingPoint.position, radius.Value, layer);
+			var collider2Ds = Physics2D.OverlapCircleAll(checkingPoint.position, radius.Value, layerMask);
 
 			var approachables = collider2Ds.
 				OrderBy(col => Vector3.Magnitude(col.transform.position - checkingPoint.transform.position)).

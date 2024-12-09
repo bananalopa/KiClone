@@ -3,7 +3,7 @@ using Text = TMPro.TextMeshProUGUI;
 
 namespace Kingdom.Monarch
 {
-	public class PouchView : MonoBehaviour
+	public class MonarchPouchView : MonoBehaviour
 	{
 		[SerializeField] private Text coinsCounterText;
 		

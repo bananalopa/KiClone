@@ -11,10 +11,12 @@ namespace Kingdom.Entities
 		[SerializeField] private CoinPresenter coinPrefab;
 		[SerializeField] private List<Color> colors;
 		[SerializeField] private FloatReference disappearTimeout;
-
-		public FloatReference DisappearTimeout => disappearTimeout;
+		[SerializeField] private FloatReference rePickupTimeout;
+		public float DisappearTimeout => disappearTimeout.Value;
 
 		public CoinPresenter CoinPrefab => coinPrefab;
+
+		public float RePickupTimeout => rePickupTimeout.Value;
 
 		public Color GetRandomColor()
 		{

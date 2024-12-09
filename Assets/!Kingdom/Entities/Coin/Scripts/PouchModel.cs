@@ -2,7 +2,7 @@
 using UnityEngine;
 using R3;
 
-namespace Kingdom.Monarch
+namespace Kingdom.Entities
 {
 	[Serializable]
 	public class PouchModel
@@ -15,6 +15,11 @@ namespace Kingdom.Monarch
 			this.currentCoinCount = new SerializableReactiveProperty<int>(currentCoinCount);
 		}
 		
+		public int AvailableSpace()
+		{
+			return maxCoinsCapacity.Value - currentCoinCount.Value;
+		}
+		
 		public bool IsEnoughCoins(int amount=1)
 		{
 			return currentCoinCount.Value >= amount;
@@ -25,7 +30,7 @@ namespace Kingdom.Monarch
 			return maxCoinsCapacity.Value - currentCoinCount.Value >= amount;
 		}
 		
-		public bool AddCoins(int amount=1)
+		public bool TryAddCoins(int amount=1)
 		{
 			if (!IsEnoughSpace(amount))
 				return false;
@@ -33,7 +38,7 @@ namespace Kingdom.Monarch
 			return true;
 		}
 		
-		public bool RemoveCoins(int amount=1)
+		public bool TryRemoveCoins(int amount=1)
 		{
 			if (!IsEnoughCoins(amount))
 				return false;

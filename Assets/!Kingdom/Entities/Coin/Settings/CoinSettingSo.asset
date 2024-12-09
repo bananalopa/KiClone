@@ -20,3 +20,6 @@ MonoBehaviour:
     disappearTimeout:
       ValueTypeValue: 10
       ScriptableObjectVariable: {fileID: 0}
+    rePickupTimeout:
+      ValueTypeValue: 1
+      ScriptableObjectVariable: {fileID: 0}

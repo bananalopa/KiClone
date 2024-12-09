@@ -13,17 +13,17 @@ namespace Kingdom.Monarch
 		[SerializeField] private FloatReference timeRequiredToSpendOneCoin;
 		
 		MonarchInteractionController monarchInteractionController;
-		private PouchPresenter pouchPresenter;
+		private MonarchPouchPresenter monarchPouchPresenter;
 		private InputHandler inputHandler;
 		private IInteractable currentInteractable;
 		private IDisposable disposable;
 			
 		[Inject]
-		private void Construct(PouchPresenter pouchPresenter,
+		private void Construct(MonarchPouchPresenter monarchPouchPresenter,
 			InputHandler inputHandler,
 			MonarchInteractionController monarchInteractionController)
 		{
-			this.pouchPresenter = pouchPresenter;
+			this.monarchPouchPresenter = monarchPouchPresenter;
 			this.inputHandler = inputHandler;
 			this.monarchInteractionController = monarchInteractionController;
 		}
@@ -68,7 +68,7 @@ namespace Kingdom.Monarch
 					{
 						if (currentInteractable == null || !currentInteractable.IsInteractable().Value)
 							return;
-						if (pouchPresenter.TryRemoveCoins())
+						if (monarchPouchPresenter.TryRemoveCoins())
 						{
 							spendingModel.AddCoinsToReserve(currentInteractable);
 							spendingView.SetReservedCoins(spendingModel.CoinsReserve.Value);
@@ -87,7 +87,7 @@ namespace Kingdom.Monarch
 
 		void Refund()
 		{
-			pouchPresenter.AddCoins(spendingModel.GetRefund());
+			monarchPouchPresenter.AddCoins(spendingModel.GetRefund());
 		}
 		
 		private void OnDestroy()
