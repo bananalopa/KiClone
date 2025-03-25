@@ -9,7 +9,7 @@ using Zenject;
 public class MainSceneInstaller : MonoInstaller
 {
     [SerializeField] private InputHandler inputHandler;
-    [FormerlySerializedAs("pouchPresenter")] [SerializeField] private MonarchPouchPresenter monarchPouchPresenter;
+    [SerializeField] private MonarchPouchPresenter monarchPouchPresenter;
     [SerializeField] private ApproachableController approachableController;
     [SerializeField] private MonarchInteractionController monarchInteractionController;
     [SerializeField] private Camera camera;
