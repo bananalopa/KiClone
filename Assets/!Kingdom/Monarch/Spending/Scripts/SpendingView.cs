@@ -30,7 +30,7 @@ namespace Kingdom.Monarch
 		{
 			priceText.text = price.ToString();
 			reservedCoinsText.text = "";
-			root.position = camera.WorldToScreenPoint(pos);
+			//root.position = camera.WorldToScreenPoint(pos);
 			canvasGroup.alpha = 1;
 		}
 

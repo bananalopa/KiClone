@@ -1,5 +1,6 @@
 using System;
 using Kingdom.Input;
+using R3;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
@@ -10,13 +11,15 @@ namespace Kingdom.Monarch
     {
         [SerializeField] Transform playerTransform;
         [SerializeField] private CharacterController characterController;
-        [SerializeField] private bool isFlipped = false;
+        [SerializeField] private SerializableReactiveProperty<bool> isFlipped;
         [SerializeField] Animator animator;
         
         private InputHandler inputHandler;
 
         const string IS_WALKING = "isWalking";
-        
+
+        public SerializableReactiveProperty<bool> IsFlipped => isFlipped;
+
         [Inject]
         void Construct(InputHandler inputHandler)
         {
@@ -40,12 +43,12 @@ namespace Kingdom.Monarch
             switch (direction)
             {
                 // Use scale to flip character depending on direction
-                case > 0 when isFlipped:
-                    isFlipped = false;
+                case > 0 when isFlipped.Value:
+                    isFlipped.Value = false;
                     playerTransform.localScale = Vector3.one;
                     break;
-                case < 0 when !isFlipped:
-                    isFlipped = true;
+                case < 0 when !isFlipped.Value:
+                    isFlipped.Value = true;
                     playerTransform.localScale = new Vector3(-1, 1, 1);
                     break;
             }

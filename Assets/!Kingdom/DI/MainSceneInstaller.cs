@@ -13,6 +13,7 @@ public class MainSceneInstaller : MonoInstaller
     [SerializeField] private ApproachableController approachableController;
     [SerializeField] private MonarchInteractionController monarchInteractionController;
     [SerializeField] private Camera camera;
+    [SerializeField] MonarchMoveController monarchMoveController;
    
     public override void InstallBindings()
     {
@@ -23,5 +24,7 @@ public class MainSceneInstaller : MonoInstaller
         Container.Bind<Camera>().FromInstance(camera).AsSingle();
 
         Container.Bind<CoinPool>().FromNew().AsSingle();
+        
+        Container.Bind<MonarchMoveController>().FromInstance(monarchMoveController).AsSingle();
     }
 }
