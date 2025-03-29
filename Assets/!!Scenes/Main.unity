@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 356583670}
   monarchPouchPresenter: {fileID: 418525661}
-  approachableController: {fileID: 1306034509}
+  approachablesLookup: {fileID: 1306034509}
   monarchInteractionController: {fileID: 1639410603}
   camera: {fileID: 7726835707821803391}
   monarchMoveController: {fileID: 2096841518}
@@ -861,6 +861,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1074941661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &315988491 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7026995264369079285, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
+  m_PrefabInstance: {fileID: 1190118642124555328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &356583669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1112,107 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &472686181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 472686182}
+  - component: {fileID: 472686185}
+  - component: {fileID: 472686184}
+  - component: {fileID: 472686183}
+  m_Layer: 6
+  m_Name: Appoachable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &472686182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472686181}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 315988491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &472686183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472686181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00307ec07e4f489682888189ff3e681c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionPrice:
+    ValueTypeValue: 0
+    ScriptableObjectVariable: {fileID: 0}
+  isInteractable:
+    value: 1
+--- !u!114 &472686184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472686181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b4b4383aa24cbe9603c36a0b30ec84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isApproached:
+    value: 0
+--- !u!58 &472686185
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472686181}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &495839548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,7 +2048,7 @@ GameObject:
   - component: {fileID: 1306034508}
   - component: {fileID: 1306034509}
   m_Layer: 0
-  m_Name: ApproachableController
+  m_Name: ApproachablesLookup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4117,7 +4223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monarchMoveController: {fileID: 0}
   monarchInteractionController: {fileID: 1639410603}
-  approachableController: {fileID: 0}
+  approachablesLookup: {fileID: 0}
   monarchPouchPresenter: {fileID: 418525661}
 --- !u!114 &2096841521
 MonoBehaviour:
@@ -4192,7 +4298,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7026995264369079285, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 472686182}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9cf69c29f587f469fa2439ea3dba45, type: 3}
 --- !u!1001 &3534039197475956362

@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Kingdom.Monarch
 {
-	public class MonarchCoinPickupController : VillagerCoinDropController
+	public class MonarchCoinPickupController : BasicCoinDropPickupController
 	{
 		private InputHandler inputHandler;
 		

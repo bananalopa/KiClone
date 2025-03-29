@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Kingdom.Entities
 {
-	public class VillagerCoinDropController : MonoBehaviour
+	public class BasicCoinDropPickupController : MonoBehaviour
 	{
 		[SerializeField] private Transform coinDropStart;
 		[SerializeField] private Transform checkingPoint;
@@ -15,9 +16,9 @@ namespace Kingdom.Entities
 		[SerializeField] protected PouchModel pouchModel;
 		[SerializeField] Color gizmosColor;
 
-		[SerializeField] List<CoinDropData> coinDropData;
+		[SerializeField] List<CoinDropData> coinsDroppedByThisEntityAndUnavailableForPickupYet;
 		
-		
+
 		SharedSettings sharedSettings;
 		CoinPool coinPool;
 		CoinSetting coinSetting;
@@ -53,15 +54,22 @@ namespace Kingdom.Entities
 			var collider2Ds = Physics2D.OverlapCircleAll(checkingPoint.position, coinPickupRadius.Value, layerMask);
 			var coinsNearby = collider2Ds.
 				Select(col => col.GetComponent<CoinPresenter>()).ToList();
-			var droppedAndAvailableForPickup = coinDropData.Where(coin => coin.DropTime + coinSetting.RePickupTimeout < Time.time);
-			coinDropData = coinDropData.Except(droppedAndAvailableForPickup).ToList();
-			var shouldBePickedUpCoins = coinsNearby.Intersect(coinDropData.Select(dropData => dropData.CoinPresenter)).Take(availableSpace).ToList();
+			
+			if (coinsNearby.Count == 0)
+				return;
+			
+			coinsDroppedByThisEntityAndUnavailableForPickupYet = coinsDroppedByThisEntityAndUnavailableForPickupYet.Where(coinDropData=> Time.time < coinDropData.DropTime + coinSetting.RePickupTimeout).ToList();
+			
+			var droppedAndAvailableForPickup = coinsDroppedByThisEntityAndUnavailableForPickupYet.Where(coin => coin.DropTime + coinSetting.RePickupTimeout < Time.time);
+			coinsDroppedByThisEntityAndUnavailableForPickupYet = coinsDroppedByThisEntityAndUnavailableForPickupYet.Except(droppedAndAvailableForPickup).ToList();
+			var shouldBePickedUpCoins = coinsNearby.Except(coinsDroppedByThisEntityAndUnavailableForPickupYet.Select(dropData => dropData.CoinPresenter)).Take(availableSpace).ToList();
 			shouldBePickedUpCoins.ForEach(PickupCoin);
 		}
 
 		void PickupCoin(CoinPresenter coin)
 		{
-			
+			coinPool.Release(coin);
+			pouchModel.TryAddCoins();
 		}
 		
 		public void DropCoins(int amount)
@@ -73,7 +81,7 @@ namespace Kingdom.Entities
 		public void DropCoin()
 		{
 			var coin = coinPool.Get();
-			coinDropData.Add(new CoinDropData(coin));
+			coinsDroppedByThisEntityAndUnavailableForPickupYet.Add(new CoinDropData(coin));
 			coin.transform.position = coinDropStart.position;
 		}
 

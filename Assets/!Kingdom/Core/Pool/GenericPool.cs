@@ -36,7 +36,7 @@ namespace Kingdom
 		public virtual void Release(T poolable)
 		{
 			poolable.Deactivate();
-			poolable.transform.position = Vector3.positiveInfinity;
+			poolable.transform.position = new Vector3(10000, 10000, 10000);
 			pool.Release(poolable);
 		}
 		

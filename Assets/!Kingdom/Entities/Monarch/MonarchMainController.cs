@@ -7,7 +7,7 @@ namespace Kingdom.Monarch
 	{
 		[SerializeField] MonarchMoveController monarchMoveController;
 		[SerializeField] MonarchInteractionController monarchInteractionController;
-		[SerializeField] ApproachableController approachableController;
+		[FormerlySerializedAs("approachableController")] [SerializeField] ApproachablesLookup approachablesLookup;
 		[FormerlySerializedAs("pouchPresenter")] [SerializeField] MonarchPouchPresenter monarchPouchPresenter;
 	}
 }

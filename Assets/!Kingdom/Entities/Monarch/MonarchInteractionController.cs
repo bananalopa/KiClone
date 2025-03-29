@@ -11,18 +11,18 @@ namespace Kingdom.Monarch
 	{
 		public Subject<IInteractable> OnInteractableChange = new();
 		
-		ApproachableController approachableController;
+		ApproachablesLookup approachablesLookup;
 		IInteractable lastInteractable;
 
 		[Inject]
-		void Construct(ApproachableController approachableController)
+		void Construct(ApproachablesLookup approachablesLookup)
 		{
-			this.approachableController = approachableController;
+			this.approachablesLookup = approachablesLookup;
 		}
 		
 		private void Start()
 		{
-			approachableController.OnApproachablesChange.Subscribe(approachables =>
+			approachablesLookup.OnApproachablesChange.Subscribe(approachables =>
 			{
 				IInteractable interactable = approachables.
 					Select(x => x.GetComponent<IInteractable>()).

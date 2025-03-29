@@ -3,6 +3,6 @@
 	public enum TechAge
 	{
 		Wood = 0,
-		Stone = 1
+		Stone = 10
 	}
 }

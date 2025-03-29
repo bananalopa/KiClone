@@ -25,23 +25,17 @@ namespace Kingdom.Entities
 			coinView.SetColor(coinSetting.GetRandomColor());
 		}
 
-		private void Start()
-		{
-			coinView.OnDissapear.Subscribe(_ =>
-			{
-				Destroy(gameObject);
-			});
-		}
 
 		public void Activate()
 		{
-			coinModel.State = CoinModel.CoinStateEnum.Dropping;
+			coinModel.State.Value = CoinModel.CoinStateEnum.Dropping;
 			rigidBody.bodyType = RigidbodyType2D.Dynamic;
+			coinView.Show(); 
 		}
 
 		public void Deactivate()
 		{
-			coinModel.State = CoinModel.CoinStateEnum.Deactivated;
+			coinModel.State.Value = CoinModel.CoinStateEnum.Deactivated;
 			rigidBody.bodyType = RigidbodyType2D.Static;
 			coinView.Hide();
 		}

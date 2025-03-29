@@ -10,7 +10,7 @@ public class MainSceneInstaller : MonoInstaller
 {
     [SerializeField] private InputHandler inputHandler;
     [SerializeField] private MonarchPouchPresenter monarchPouchPresenter;
-    [SerializeField] private ApproachableController approachableController;
+    [FormerlySerializedAs("approachableController")] [SerializeField] private ApproachablesLookup approachablesLookup;
     [SerializeField] private MonarchInteractionController monarchInteractionController;
     [SerializeField] private Camera camera;
     [SerializeField] MonarchMoveController monarchMoveController;
@@ -19,7 +19,7 @@ public class MainSceneInstaller : MonoInstaller
     {
         Container.Bind<InputHandler>().FromInstance(inputHandler).AsSingle();
         Container.Bind<MonarchPouchPresenter>().FromInstance(monarchPouchPresenter).AsSingle();
-        Container.Bind<ApproachableController>().FromInstance(approachableController).AsSingle();
+        Container.Bind<ApproachablesLookup>().FromInstance(approachablesLookup).AsSingle();
         Container.Bind<MonarchInteractionController>().FromInstance(monarchInteractionController).AsSingle();
         Container.Bind<Camera>().FromInstance(camera).AsSingle();
 

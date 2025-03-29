@@ -1,4 +1,5 @@
 ﻿using System;
+using R3;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,7 +8,7 @@ namespace Kingdom.Entities
 	[Serializable]
 	public class CoinModel
 	{
-		[SerializeField] CoinStateEnum state;
+		[SerializeField] SerializableReactiveProperty<CoinStateEnum> state;
 		[SerializeField] private float dropTime;
 
 		public float DropTime
@@ -16,11 +17,7 @@ namespace Kingdom.Entities
 			set => dropTime = value;
 		}
 
-		public CoinStateEnum State
-		{
-			get => state;
-			set => state = value;
-		}
+		public SerializableReactiveProperty<CoinStateEnum> State => state;
 
 
 		public enum CoinStateEnum

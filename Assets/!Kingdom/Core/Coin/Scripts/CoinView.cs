@@ -32,7 +32,7 @@ namespace Kingdom.Entities
 		
 		public void Show()
 		{
-			renderer.DOFadeOut(sharedSettings.FadeTime).OnComplete(()=>OnDissapear.OnNext(Unit.Default));
+			renderer.DOFadeIn(sharedSettings.FadeTime, isStartValueOverwritten: true).OnComplete(()=>OnDissapear.OnNext(Unit.Default));
 		}
 	}
 }

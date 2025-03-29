@@ -7,10 +7,10 @@ using UnityEngine.Serialization;
 
 namespace Kingdom
 {
-	public class ApproachableController: MonoBehaviour
+	public class ApproachablesLookup: MonoBehaviour
 	{
 		[SerializeField] private Transform checkingPoint;
-		[FormerlySerializedAs("layer")] [SerializeField] private LayerMask layerMask;
+		[SerializeField] private LayerMask layerMask;
 		[SerializeField] Color gizmosColor;
 		[SerializeField] private FloatReference radius;
 		[SerializeField] List<Approachable> previousTickApproachables;
