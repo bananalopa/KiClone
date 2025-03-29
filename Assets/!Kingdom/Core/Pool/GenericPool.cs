@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using R3;
+using UnityEngine;
 using UnityEngine.Pool;
 using Zenject;
 
@@ -23,6 +24,7 @@ namespace Kingdom
 			var poolable = container.InstantiatePrefab(prefab).GetComponent<T>();
 			poolable.transform.SetParent(poolParent.transform);
 			poolable.name = typeof(T).Name+"PoolElement";
+
 			return poolable;
 		}
 		
@@ -35,7 +37,6 @@ namespace Kingdom
 		
 		public virtual void Release(T poolable)
 		{
-			poolable.Deactivate();
 			poolable.transform.position = new Vector3(10000, 10000, 10000);
 			pool.Release(poolable);
 		}

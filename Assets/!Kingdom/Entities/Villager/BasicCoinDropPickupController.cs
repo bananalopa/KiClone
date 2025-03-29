@@ -62,13 +62,15 @@ namespace Kingdom.Entities
 			
 			var droppedAndAvailableForPickup = coinsDroppedByThisEntityAndUnavailableForPickupYet.Where(coin => coin.DropTime + coinSetting.RePickupTimeout < Time.time);
 			coinsDroppedByThisEntityAndUnavailableForPickupYet = coinsDroppedByThisEntityAndUnavailableForPickupYet.Except(droppedAndAvailableForPickup).ToList();
-			var shouldBePickedUpCoins = coinsNearby.Except(coinsDroppedByThisEntityAndUnavailableForPickupYet.Select(dropData => dropData.CoinPresenter)).Take(availableSpace).ToList();
+			var shouldBePickedUpCoins = coinsNearby.Except(coinsDroppedByThisEntityAndUnavailableForPickupYet.Select(dropData => dropData.CoinPresenter))
+				.Where(coin=>coin.Model.IsPickable)
+				.Take(availableSpace).ToList();
 			shouldBePickedUpCoins.ForEach(PickupCoin);
 		}
 
 		void PickupCoin(CoinPresenter coin)
 		{
-			coinPool.Release(coin);
+			coin.Deactivate();
 			pouchModel.TryAddCoins();
 		}
 		

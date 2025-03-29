@@ -11,9 +11,9 @@ namespace Kingdom.Input
         [SerializeField] InputActionReference downTapAction;
         [SerializeField] InputActionReference downHoldAction;
 
-        public Subject<float> HorPress = new();
-        public Subject<Unit> DownTap= new();
-        public Subject<bool> DownHold= new();
+        public readonly Subject<float> HorPress = new();
+        public readonly Subject<Unit> DownTap= new();
+        public readonly Subject<bool> DownHold= new();
         private bool isDownHold = false;
         
         public bool IsDownHold => isDownHold;

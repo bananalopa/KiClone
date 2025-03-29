@@ -1,6 +1,9 @@
-﻿namespace Kingdom
+﻿using UnityEngine;
+using R3;
+
+namespace Kingdom
 {
-	public interface IPoolable
+	public interface  IPoolable
 	{
 		public void Activate();
 		

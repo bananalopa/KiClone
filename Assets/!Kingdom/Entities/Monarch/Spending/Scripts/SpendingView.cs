@@ -7,7 +7,6 @@ namespace Kingdom.Monarch
 {
 	public class SpendingView : MonoBehaviour
 	{
-		
 		[SerializeField] private Transform root;
 		[SerializeField] CanvasGroup canvasGroup;
 		[SerializeField] private Text priceText;

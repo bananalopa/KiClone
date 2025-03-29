@@ -17,17 +17,16 @@ namespace Kingdom.Entities
 			set => dropTime = value;
 		}
 
+		public bool IsPickable => (state.Value == CoinStateEnum.Idle);
+		
 		public SerializableReactiveProperty<CoinStateEnum> State => state;
 
 
 		public enum CoinStateEnum
 		{
 			Deactivated = 0,
-			Dropping = 20,
-			Lying = 30,
-			Picking = 40,
-			Disappearing = 50,
-			FallingIntoWater = 60
+			Idle = 20,
+			Picking = 40
 		}
 	}
 }

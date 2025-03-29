@@ -64,18 +64,12 @@ namespace Kingdom.Monarch
 						return;
 					
 					spendingView.Show(currentInteractable.InteractionPrice(), currentInteractable.gameObject.transform.position);
+					AddCoinToReserve();
 					disposable = Observable.Interval(TimeSpan.FromSeconds(timeRequiredToSpendOneCoin.Value)).Subscribe(_ =>
 					{
-						if (currentInteractable == null || !currentInteractable.IsInteractable().Value)
-							return;
-						if (monarchPouchPresenter.TryRemoveCoins())
-						{
-							spendingModel.AddCoinsToReserve(currentInteractable);
-							spendingView.SetReservedCoins(spendingModel.CoinsReserve.Value);
-						}
+						AddCoinToReserve(); 
 					}).AddTo(this);
-
-
+					
 				}
 				else
 				{
@@ -83,6 +77,17 @@ namespace Kingdom.Monarch
 					Refund();
 				}
 			}).AddTo(this);
+		}
+
+		private void AddCoinToReserve()
+		{
+			if (currentInteractable == null || !currentInteractable.IsInteractable().Value)
+				return;
+			if (monarchPouchPresenter.TryRemoveCoins())
+			{
+				spendingModel.AddCoinsToReserve(currentInteractable);
+				spendingView.SetReservedCoins(spendingModel.CoinsReserve.Value);
+			}
 		}
 
 		void Refund()
