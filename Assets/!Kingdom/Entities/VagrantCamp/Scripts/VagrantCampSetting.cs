@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Kingdom.Entities
 {
@@ -7,12 +8,12 @@ namespace Kingdom.Entities
 	public class VagrantCampSetting
 	{
 		[SerializeField] IntReference vagrantCapacity;
-		[SerializeField] private FloatReference vagrantSpawnRate;
+		[FormerlySerializedAs("vagrantSpawnRate")] [SerializeField] private FloatReference vagrantSpawnRateInSec;
 		[SerializeField] private FloatReference disappearAfterTreeNearbyCutTimeout;
-		
+
 		public IntReference VagrantCapacity => vagrantCapacity;
 
-		public FloatReference VagrantSpawnRate => vagrantSpawnRate;
+		public FloatReference VagrantSpawnRateInSec => vagrantSpawnRateInSec;
 
 		public FloatReference DisappearAfterTreeNearbyCutTimeout => disappearAfterTreeNearbyCutTimeout;
 	}
