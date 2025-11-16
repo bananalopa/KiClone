@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 773afb37d2c29ec4bacfe0545a3af76a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 297464
+  packageName: 2D Parallax Backgrounds Pack
+  packageVersion: 1.0.0
+  assetPath: Assets/TooMooseGames/2D Parallax Backgrounds Pack/Scripts/PlayerController2d.cs
+  uploadId: 696399
