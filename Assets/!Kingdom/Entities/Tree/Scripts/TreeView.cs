@@ -1,7 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using DG.Tweening.Core;
-using DG.Tweening;
 using UnityEngine.UI;
 using Zenject;
 

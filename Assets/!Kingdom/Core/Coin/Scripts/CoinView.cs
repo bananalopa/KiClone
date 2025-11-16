@@ -1,5 +1,5 @@
 ﻿using System;
-using DG.Tweening;
+using PrimeTween;
 using R3;
 using UnityEngine;
 using Zenject;
