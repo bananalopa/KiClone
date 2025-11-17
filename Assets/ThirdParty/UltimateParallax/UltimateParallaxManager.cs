@@ -31,7 +31,7 @@ namespace UltimateParallax
                     var layerPos = layer.transform.position;
                         
                     layerPos.x = camPos.x * CameraRemap(layer.parallaxSpeedX) * parallaxScale;
-                    layerPos.y = camPos.y * CameraRemap(layer.parallaxSpeedY) * parallaxScale;
+                    //layerPos.y = camPos.y * CameraRemap(layer.parallaxSpeedY) * parallaxScale;
                     layer.transform.position = layerPos;
                     if(Application.isPlaying)
                     {
