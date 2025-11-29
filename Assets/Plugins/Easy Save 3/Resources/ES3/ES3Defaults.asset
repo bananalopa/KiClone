@@ -32,6 +32,7 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - FastScriptReload.Runtime
     - Kingdom
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Demo
