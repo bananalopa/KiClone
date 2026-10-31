@@ -29,7 +29,7 @@ namespace Kingdom.Entities
 		{
 			renderer.DOFadeOut(sharedSettings.FadeTime).OnComplete(()=>OnShown.OnNext(false));
 		}
-		
+
 		public void Show()
 		{
 			renderer.DOFadeIn(sharedSettings.FadeTime, isStartValueOverwritten: true).OnComplete(()=>OnShown.OnNext(true));

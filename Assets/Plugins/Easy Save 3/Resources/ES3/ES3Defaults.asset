@@ -32,10 +32,11 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
-    - FastScriptReload.Runtime
+    - Extensions.Unity.PlayerPrefsEx
     - Kingdom
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Demo
+    - MCPForUnity.Runtime
     - MoreMountains.Tools
     - PrimeTween.Debug
     - PrimeTween.Demo

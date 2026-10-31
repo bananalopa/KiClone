@@ -8,7 +8,9 @@ namespace Kingdom.Monarch
 {
 	public class MonarchCoinPickupController : BasicCoinDropPickupController
 	{
+		[SerializeField] private Animator animator;
 		private InputHandler inputHandler;
+		
 		
 		[Inject]
 		private void Construct(InputHandler inputHandler)
@@ -22,7 +24,10 @@ namespace Kingdom.Monarch
 			inputHandler.DownTap.Subscribe(_ =>
 			{
 				if (Model.TryRemoveCoins())
+				{
 					DropCoin();
+					animator.SetBool("dropItem",true);
+				}
 			});
 		}
 
